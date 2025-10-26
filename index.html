@@ -559,7 +559,6 @@
             <nav>
                 <ul>
                     <li><a href="#home-page" class="page-link active">Home</a></li>
-                    <li><a href="#horoscopes-page" class="page-link">Horoscopes</a></li>
                     <li><a href="#services-page" class="page-link">Tarot & Services</a></li>
                 </ul>
             </nav>
@@ -582,19 +581,9 @@
                     <h2>Our Sacred Services</h2>
                     <div class="service-grid">
                         <div class="service-card">
-                            <h3>Zodiac Horoscopes</h3>
-                            <p>Get your free daily, weekly, and monthly insights for all 12 zodiac signs, curated with cosmic wisdom.</p>
-                            <a href="#horoscopes-page" class="cta-button-secondary page-link">Read Now</a>
-                        </div>
-                        <div class="service-card">
                             <h3>In-Depth Tarot Readings</h3>
                             <p>Connect via voice, call, or video for a personalized tarot analysis that illuminates your path.</p>
                             <a href="#services-page" class="cta-button-secondary page-link">View Pricing</a>
-                        </div>
-                        <div class="service-card">
-                            <h3>Natal Birth Charts</h3>
-                            <p>Unlock the secrets of your soul's blueprint with a detailed and insightful birth chart analysis.</p>
-                            <a href="#services-page" class="cta-button-secondary page-link">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -619,41 +608,6 @@
             </div>
         </section>
 
-        <!-- Horoscopes Page Section -->
-        <section id="horoscopes-page" class="page">
-             <div class="horoscope-page">
-                <div class="container">
-                    <h2>Read All Zodiac Sign's Horoscopes</h2>
-                    <p class="intro-p">Read free Daily, Weekly and Monthly horoscopes for all zodiac signs. Our predictions are carefully curated by experts to provide insights into love, career, health, and more.</p>
-
-                    <div class="horoscope-tabs">
-                        <button class="tab-link active" onclick="openHoroscope(event, 'Daily')">Daily</button>
-                        <button class="tab-link" onclick="openHoroscope(event, 'Weekly')">Weekly</button>
-                        <button class="tab-link" onclick="openHoroscope(event, 'Monthly')">Monthly</button>
-                    </div>
-
-                    <div id="Daily" class="tab-content active">
-                        <div class="zodiac-grid">
-                            <div class="zodiac-card" data-sign="Aries" data-dates="Mar 21 - Apr 19"> <svg viewBox="0 0 100 100"><path d="M50 10 L70 30 L50 50 L30 30 Z M50 50 C30 50 20 70 20 90 M80 90 C80 70 70 50 50 50" fill="none" stroke="#ffc107" stroke-width="4"/></svg> <h3>Aries</h3> <p>Mar 21-Apr 19</p> </div>
-                            <div class="zodiac-card" data-sign="Taurus" data-dates="Apr 20 - May 20"> <svg viewBox="0 0 100 100"><circle cx="50" cy="40" r="20" fill="none" stroke="#ffc107" stroke-width="4"/><path d="M30 40 C30 70 70 70 70 40" fill="none" stroke="#ffc107" stroke-width="4"/></svg> <h3>Taurus</h3> <p>Apr 20-May 20</p> </div>
-                            <div class="zodiac-card" data-sign="Gemini" data-dates="May 21 - Jun 20"> <svg viewBox="0 0 100 100"><path d="M25 20 L25 80 M75 20 L75 80 M20 25 L80 25 M20 75 L80 75" fill="none" stroke="#ffc107" stroke-width="4"/></svg> <h3>Gemini</h3> <p>May 21-Jun 20</p> </div>
-                            <div class="zodiac-card" data-sign="Cancer" data-dates="Jun 21 - Jul 22"> <svg viewBox="0 0 100 100"><path d="M20 50 a25 25 0 1 1 50 0 M80 50 a25 25 0 1 0 -50 0" fill="none" stroke="#ffc107" stroke-width="4" transform="rotate(30 50 50)"/></svg> <h3>Cancer</h3> <p>Jun 21-Jul 22</p> </div>
-                            <div class="zodiac-card" data-sign="Leo" data-dates="Jul 23 - Aug 22"> <svg viewBox="0 0 100 100"><circle cx="35" cy="35" r="15" fill="none" stroke="#ffc107" stroke-width="4"/><path d="M35 50 C50 20 80 20 80 50 S70 90 50 80" fill="none" stroke="#ffc107" stroke-width="4"/></svg> <h3>Leo</h3> <p>Jul 23-Aug 22</p> </div>
-                            <div class="zodiac-card" data-sign="Virgo" data-dates="Aug 23 - Sep 22"> <svg viewBox="0 0 100 100"><path d="M20 20 L20 80 M40 20 L40 80 M60 20 L60 80 L80 60 C80 40 60 40 60 60 L60 80" fill="none" stroke="#ffc107" stroke-width="4"/></svg> <h3>Virgo</h3> <p>Aug 23-Sep 22</p> </div>
-                            <div class="zodiac-card" data-sign="Libra" data-dates="Sep 23 - Oct 22"> <svg viewBox="0 0 100 100"><path d="M10 70 L90 70 M20 60 L80 60 M50 60 L50 30 L30 10 L70 10 L50 30" fill="none" stroke="#ffc107" stroke-width="4"/></svg> <h3>Libra</h3> <p>Sep 23-Oct 22</p> </div>
-                            <div class="zodiac-card" data-sign="Scorpio" data-dates="Oct 23 - Nov 21"> <svg viewBox="0 0 100 100"><path d="M20 20 L20 80 M40 20 L40 80 M60 20 L60 80 L85 55 L60 80" fill="none" stroke="#ffc107" stroke-width="4"/></svg> <h3>Scorpio</h3> <p>Oct 23-Nov 21</p> </div>
-                            <div class="zodiac-card" data-sign="Sagittarius" data-dates="Nov 22 - Dec 21"> <svg viewBox="0 0 100 100"><path d="M20 80 L80 20 M50 20 L80 20 L80 50 M40 60 L60 40" fill="none" stroke="#ffc107" stroke-width="4"/></svg> <h3>Sagittarius</h3> <p>Nov 22-Dec 21</p> </div>
-                            <div class="zodiac-card" data-sign="Capricorn" data-dates="Dec 22 - Jan 19"> <svg viewBox="0 0 100 100"><path d="M20 40 L40 20 L60 40 L60 80 C80 80 80 60 60 60" fill="none" stroke="#ffc107" stroke-width="4"/></svg> <h3>Capricorn</h3> <p>Dec 22-Jan 19</p> </div>
-                            <div class="zodiac-card" data-sign="Aquarius" data-dates="Jan 20 - Feb 18"> <svg viewBox="0 0 100 100"><path d="M20 40 L40 60 L60 40 L80 60 M20 65 L40 85 L60 65 L80 85" fill="none" stroke="#ffc107" stroke-width="4"/></svg> <h3>Aquarius</h3> <p>Jan 20-Feb 18</p> </div>
-                            <div class="zodiac-card" data-sign="Pisces" data-dates="Feb 19 - Mar 20"> <svg viewBox="0 0 100 100"><path d="M20 20 C 80 20 80 80 20 80 M80 20 C 20 20 20 80 80 80 M50 10 L50 90" fill="none" stroke="#ffc107" stroke-width="4"/></svg> <h3>Pisces</h3> <p>Feb 19-Mar 20</p> </div>
-                        </div>
-                    </div>
-
-                    <div id="Weekly" class="tab-content"><p style="text-align:center;">Weekly horoscope content for all signs would be displayed here.</p></div>
-                    <div id="Monthly" class="tab-content"><p style="text-align:center;">Monthly horoscope content for all signs would be displayed here.</p></div>
-                </div>
-            </div>
-        </section>
 
         <!-- Services Page Section -->
         <section id="services-page" class="page">
@@ -691,10 +645,6 @@
                     <hr class="service-divider">
                     <div class="other-services">
                         <h2>Other Services</h2>
-                        <h3>Natal Birth Chart Analysis</h3>
-                        <p>Discover your life's blueprint. A natal chart reading provides a deep dive into your personality, strengths, challenges, and life path based on the exact time, date, and place of your birth.</p>
-                        <div class="price-item"><span>Full Natal Chart Report + 30-min Consultation</span><span class="price">₹2499</span></div>
-                        <a href="mailto:contact@divinationdiva.com" class="cta-button-secondary">Book Your Chart</a>
                     </div>
                 </div>
             </div>
