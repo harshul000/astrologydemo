@@ -6,23 +6,21 @@
     <title>Divination Diva - Discover Your Destiny</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- UPDATED: New font 'Inter' for body, 'Playfair Display' for headers -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* ---------------------------------
-           Global Styles & NEW Variables
+           Global Styles & Variables
            --------------------------------- */
         :root {
-            /* NEW: Colorful & Mystical Palette */
-            --dark-bg: #1A0F29;         /* Very Deep Purple */
-            --primary-magenta: #C13584;
-            --primary-blue: #3A0CA3;
-            --primary-teal: #00B4D8;
-            --accent-gold: #F2A900;
-            --light-text: #E0D6F5;      /* Soft Lavender */
-            
+            --primary-color: #6a1b9a; /* A slightly brighter purple */
+            --secondary-color: #fce4ec; /* Soft Pink */
+            --accent-gold: #ffc107; /* Vibrant Gold */
+            --dark-bg: #1a0129;
+            --light-text: #f3e5f5;
+            --text-color: #333;
             --heading-font: 'Playfair Display', serif;
-            --body-font: 'Inter', sans-serif; /* NEW: Clean sans-serif */
+            --body-font: 'Lora', serif;
+            --gradient-bg: linear-gradient(135deg, #4a0e6b, #1a0129);
         }
 
         /* Smooth scrolling */
@@ -34,13 +32,7 @@
             font-family: var(--body-font);
             margin: 0;
             padding: 0;
-            /* NEW: Nebula Background */
             background-color: var(--dark-bg);
-            background-image: url('https://www.transparenttextures.com/patterns/stardust.png'), 
-                              radial-gradient(at 20% 20%, hsla(270, 50%, 30%, 0.3), transparent 50%), 
-                              radial-gradient(at 80% 60%, hsla(190, 50%, 30%, 0.3), transparent 50%), 
-                              radial-gradient(at 50% 90%, hsla(320, 50%, 30%, 0.3), transparent 50%);
-            background-attachment: fixed; /* Stays in place on scroll */
             color: var(--light-text);
             line-height: 1.7;
         }
@@ -49,6 +41,11 @@
             width: 90%;
             max-width: 1100px;
             margin: 0 auto;
+        }
+        
+        /* Add box-sizing to all elements for easier layout */
+        *, *::before, *::after {
+            box-sizing: border-box;
         }
 
         h1, h2, h3, h4 {
@@ -60,7 +57,6 @@
 
         p {
             margin-bottom: 1.2em;
-            color: var(--light-text);
         }
 
         a {
@@ -86,9 +82,9 @@
            Header & Navigation
            --------------------------------- */
         header {
-            background-color: rgba(26, 15, 41, 0.8); /* Updated dark bg */
+            background-color: rgba(26, 1, 41, 0.8);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--primary-blue);
+            border-bottom: 1px solid var(--primary-color);
             padding: 1rem 0;
             position: sticky;
             top: 0;
@@ -107,7 +103,7 @@
         }
 
         .logo-img {
-            width: 60px;
+            width: 60px; /* Increased size */
             height: 60px;
             margin-right: 15px;
             border-radius: 50%;
@@ -116,7 +112,7 @@
 
         .logo-text {
             font-family: var(--heading-font);
-            font-size: 2rem;
+            font-size: 2rem; /* Increased size */
             font-weight: 700;
             color: #fff;
         }
@@ -157,25 +153,126 @@
            Footer
            --------------------------------- */
         footer {
-            background: linear-gradient(135deg, var(--primary-blue), var(--dark-bg));
+            background: var(--gradient-bg);
             color: var(--light-text);
+            text-align: left; /* Changed from center */
+            padding: 4rem 0 0 0; /* Add padding top, remove bottom */
+            margin-top: 0; /* Removed margin-top as gallery has border */
+            border-top: 1px solid var(--primary-color);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            padding-bottom: 3rem;
+        }
+        
+        .footer-column h4 {
+            font-family: var(--heading-font);
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        /* Underline for footer titles */
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-gold);
+        }
+        
+        .footer-column p {
+            color: var(--light-text);
+            opacity: 0.8;
+            max-width: 300px;
+            font-size: 0.95rem;
+        }
+        
+        ul.footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        ul.footer-links li {
+            margin-bottom: 1rem;
+        }
+        
+        ul.footer-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        ul.footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            flex-direction: column; /* Stack links */
+            gap: 1.2rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-gold);
+            transform: translateX(5px);
+        }
+        
+        .social-links a svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--accent-gold);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover svg {
+            stroke: var(--accent-gold);
+        }
+        
+        .copyright {
             text-align: center;
-            padding: 2.5rem 0;
-            margin-top: 4rem;
-            border-top: 1px solid var(--primary-blue);
+            padding: 1.5rem 0;
+            border-top: 1px solid rgba(106, 27, 154, 0.5); /* Lighter border */
+            margin-top: 2rem;
+        }
+        
+        .copyright p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.7;
         }
 
         /* ---------------------------------
            Buttons
            --------------------------------- */
         .cta-button, .cta-button-secondary {
-            display: inline-flex;
+            display: inline-flex; /* Changed from inline-block */
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.75rem; /* Space for icon */
             padding: 0.9rem 2rem;
             font-weight: 700;
             font-family: var(--body-font);
-            border-radius: 50px;
+            border-radius: 50px; /* Rounded buttons */
             transition: all 0.3s ease;
             text-align: center;
             border: 2px solid transparent;
@@ -189,30 +286,16 @@
             flex-wrap: wrap;
         }
 
-        /* NEW: Hero/CTA Button Style */
         .cta-button {
-            background-image: linear-gradient(to right, var(--accent-gold) 0%, #ffb300 51%, var(--accent-gold) 100%);
-            background-size: 200% auto;
-            color: #1A0F29; /* Dark text on gold */
-            box-shadow: 0 0 10px var(--accent-gold);
-            animation: pulseGlowGold 3s infinite;
-            transition: 0.5s;
+            background-image: linear-gradient(to right, #ffc107, #ff9800);
+            color: #1a0129;
         }
         .cta-button:hover {
-            background-position: right center; /* change the direction of the change here */
             transform: translateY(-3px);
-            box-shadow: 0 0 25px var(--accent-gold);
+            box-shadow: 0 7px 20px rgba(255, 193, 7, 0.4);
         }
-        
-        @keyframes pulseGlowGold {
-            0% { box-shadow: 0 0 10px var(--accent-gold); }
-            50% { box-shadow: 0 0 25px var(--accent-gold); }
-            100% { box-shadow: 0 0 10px var(--accent-gold); }
-        }
-
 
         .instagram-button {
-            /* Instagram-inspired Gradient */
             background-image: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
             color: #fff;
         }
@@ -221,7 +304,6 @@
             box-shadow: 0 7px 20px rgba(220, 50, 50, 0.4);
         }
 
-        /* Standard secondary button (gold border) */
         .cta-button-secondary {
             background-color: transparent;
             color: var(--accent-gold);
@@ -231,27 +313,30 @@
             background-color: var(--accent-gold);
             color: var(--dark-bg);
             transform: translateY(-3px);
-            box-shadow: 0 7px 20px rgba(242, 169, 0, 0.3);
         }
 
         /* ---------------------------------
            Home Page: Hero & Featured Services
            --------------------------------- */
-        
         .hero {
+            background: #000;
             text-align: center;
             padding: 6rem 1rem;
             position: relative;
             overflow: hidden;
-            /* NEW: Cosmic Gradient Background */
-            background-image: linear-gradient(135deg, var(--primary-blue), var(--primary-magenta), var(--primary-teal));
-            background-size: 200% 200%;
-            animation: gradientDrift 15s ease infinite alternate;
         }
-        
-        @keyframes gradientDrift {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://www.transparenttextures.com/patterns/stardust.png'), linear-gradient(330deg, #1a0129 0%, #4a0e6b 50%, #0d0d0d 100%);
+            background-size: auto, cover;
+            animation: slowPan 30s linear infinite alternate;
+            opacity: 0.9;
+        }
+        @keyframes slowPan {
+            from { background-position: 0% 0%; }
+            to { background-position: 100% 100%; }
         }
 
         .hero .container {
@@ -260,39 +345,27 @@
         }
 
         .hero h1 {
-            font-size: 4.5rem;
+            font-size: 4rem;
             margin: 0;
             color: #fff;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* White glow */
         }
 
         .hero p {
             font-size: 1.3rem;
-            color: #fff; /* Brighter text on gradient */
+            color: var(--light-text);
             margin-bottom: 2.5rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
         
-        @media (max-width: 768px) { 
-            .hero h1 { font-size: 3rem; } 
-        }
-
-        /* NEW: Section Divider */
-        .section-divider {
-            height: 2px;
-            background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
-            border: 0;
-            margin: 0;
-            opacity: 0.7;
-            box-shadow: 0 0 15px var(--accent-gold);
-        }
-
+        @media (max-width: 768px) { .hero h1 { font-size: 2.8rem; } }
 
         .featured-services {
             padding: 4rem 0;
-            background-color: transparent; /* Show body nebula */
+            padding-bottom: 5rem; /* Add more space */
+            background-color: var(--dark-bg);
+            border-bottom: 1px solid var(--primary-color); /* Add separation */
         }
 
         .featured-services h2 {
@@ -302,36 +375,163 @@
         }
 
         .service-grid {
-            display: flex;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            max-width: 800px; /* Centering the 2 items */
+            margin: 0 auto; /* Centering the 2 items */
         }
 
-        /* NEW: Colorful Service Card */
         .service-card {
-            background: linear-gradient(135deg, var(--primary-blue), var(--primary-magenta));
-            border: 1px solid var(--primary-magenta);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            /* REPLICATED FROM IMAGE 1 */
+            background: linear-gradient(135deg, #6a1b9a, #4242e2); /* Gradient from image */
+            border: 2px solid #ffcc00; /* Gold-orange border */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2), 0 0 20px rgba(255,204,0,0.5); /* Added glow */
             padding: 2.5rem 2rem;
             text-align: center;
-            border-radius: 20px;
+            border-radius: 15px;
             transition: all 0.3s ease;
-            max-width: 600px;
-            width: 100%;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(193, 53, 132, 0.4);
-            border-color: var(--accent-gold);
+            box-shadow: 0 8px 30px rgba(106, 27, 154, 0.5), 0 0 30px rgba(255,204,0,0.8); /* Enhanced hover glow */
+            border-color: #ffcc00; /* Keep gold on hover */
         }
 
         .service-card h3 {
             font-size: 1.8rem;
             margin-bottom: 1rem;
-            color: #fff; /* White title on gradient */
+            color: #fff; /* White title for contrast on gradient */
         }
+        
+        /* REPLICATED FROM IMAGE 1: Specific button style for service card */
+        .service-card .cta-button-secondary {
+            background: transparent;
+            color: #fff; /* White text for button */
+            border: 2px solid #ffcc00; /* Gold border */
+            padding: 0.9rem 2.5rem; /* Adjusted padding */
+            border-radius: 50px;
+            box-shadow: 0 0 10px rgba(255,204,0,0.3); /* Subtle glow */
+        }
+
+        .service-card .cta-button-secondary:hover {
+            background-color: #ffcc00; /* Gold background on hover */
+            color: #1a0129; /* Dark text on hover */
+            transform: translateY(-5px); /* More pronounced lift */
+            box-shadow: 0 7px 20px rgba(255, 193, 7, 0.4), 0 0 25px rgba(255,204,0,0.7); /* Enhanced shadow and glow */
+        }
+
+
+        /* ---------------------------------
+           Home Page: Gallery (NEW SLIDESHOW)
+           --------------------------------- */
+        .gallery-section {
+            padding: 4rem 0;
+            /* NEW: Add a new background to differentiate */
+            background-color: #0f011f; /* Slightly different dark purple */
+            /* NEW: Add borders for separation */
+            border-top: 1px dashed rgba(106, 27, 154, 0.5);
+            border-bottom: 1px dashed rgba(106, 27, 154, 0.5);
+        }
+        .gallery-section h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+        }
+        
+        /* New Slideshow Styles */
+        .slideshow-container {
+            max-width: 800px; /* Set a max-width for the slideshow */
+            position: relative;
+            margin: auto;
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            overflow: hidden; /* Ensures images stay within bounds */
+            box-shadow: 0 8px 30px rgba(106, 27, 154, 0.5);
+        }
+
+        /* Hide all slides by default */
+        .slide-item {
+            display: none;
+        }
+
+        .slide-item img {
+            width: 100%;
+            height: 500px; /* Fixed height for all images */
+            object-fit: cover;
+            vertical-align: middle; /* Fixes potential bottom space */
+            border-radius: 13px; /* Slightly less than container for fit */
+        }
+        
+        /* Fading animation */
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+        
+        /* Next & previous buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            transition: 0.3s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0,0,0,0.3);
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        
+        .prev {
+            left: 0;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+            color: var(--accent-gold);
+        }
+
+
+        /* Dots container */
+        .dots-container {
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 10px;
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active-dot, .dot:hover {
+            background-color: var(--accent-gold);
+        }
+
 
         /* ---------------------------------
            Services & Pricing Page
@@ -341,32 +541,32 @@
 
         .price-list-container {
             display: grid; grid-template-columns: 1fr 1fr; gap: 0;
-            background: rgba(26, 15, 41, 0.7); /* Dark semi-transparent */
-            border: 1px solid var(--primary-blue);
+            background: rgba(26, 1, 41, 0.5);
+            border: 1px solid var(--primary-color);
             box-shadow: 0 8px 32px 0 rgba(0,0,0,0.3);
             border-radius: 15px; overflow: hidden;
-            backdrop-filter: blur(10px);
         }
         .price-column { padding: 0; }
-        .price-column:first-child { border-right: 1px solid var(--primary-blue); }
+        .price-column:first-child { border-right: 1px solid var(--primary-color); }
 
         .price-header {
-            /* NEW: Colorful Header */
-            background: linear-gradient(135deg, var(--primary-blue), var(--primary-teal));
+            /* REPLICATED FROM IMAGE 2 */
+            background: #4242e2; /* Solid Blue */
             padding: 2rem; text-align: center;
+        }
+        /* REPLICATED FROM IMAGE 2: Specific background for the second column header */
+        .price-column:last-child .price-header {
+            background: #00bcd4; /* Solid Teal */
         }
         .price-header h3 { color: #fff; font-size: 1.8rem; margin: 0; }
 
-        .price-category { padding: 2rem; border-bottom: 1px solid var(--primary-blue); }
+        .price-category { padding: 2rem; border-bottom: 1px solid var(--primary-color); }
         .price-column .price-category:last-child { border-bottom: none; }
         .price-category h4 {
             font-family: var(--body-font); font-weight: 700;
-            font-size: 1.1rem; letter-spacing: 1px; text-transform: uppercase;
-            color: var(--accent-gold);
-            border-bottom: 2px solid var(--accent-gold);
-            padding-bottom: 5px; 
-            display: inline-block;
-            margin-bottom: 1.5rem;
+            font-size: 1rem; letter-spacing: 1px; text-transform: uppercase;
+            color: var(--accent-gold); border-bottom: none;
+            padding-bottom: 0; display: block; margin-bottom: 1.5rem;
         }
         .price-item {
             display: flex; justify-content: space-between; align-items: center;
@@ -376,22 +576,79 @@
         .price-item .price { font-weight: 700; font-size: 1.3rem; color: var(--accent-gold); }
 
         .call-to-action-box {
-            /* NEW: Colorful Gradient Box */
-            background-image: linear-gradient(135deg, var(--primary-blue), var(--primary-magenta));
-            background-size: 200% 200%;
-            animation: gradientDrift 15s ease infinite alternate;
+            /* REPLICATED FROM IMAGE 3 */
+            background: linear-gradient(135deg, #6a1b9a, #d32f2f); /* Purple to Red Gradient */
             color: #fff; text-align: center; padding: 3rem;
             border-radius: 15px; margin-top: 3rem;
-            border: 1px solid var(--accent-gold);
-            box-shadow: 0 0 20px rgba(193, 53, 132, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.3); /* Added shadow for depth */
         }
         .call-to-action-box h3 { color: #fff; font-size: 2.2rem; margin: 0 0 1rem; }
-        .call-to-action-box p { margin: 0 0 1.5rem; font-size: 1.1rem; color: #fff; }
-        .call-to-action-box .cta-button { box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+        .call-to-action-box p { margin: 0 0 1.5rem; font-size: 1.1rem; color: var(--light-text); }
+        
+        /* REPLICATED FROM IMAGE 3: Buttons inside CTA box */
+        .call-to-action-box .cta-button {
+            background-image: linear-gradient(to right, #ffeb3b, #ffc107); /* Yellow/Orange */
+            color: #333; /* Dark text */
+            box-shadow: 0 0 15px rgba(255,235,59,0.5); /* Yellow glow */
+            border: none; /* No border for these buttons */
+        }
+        .call-to-action-box .cta-button:hover {
+            box-shadow: 0 7px 20px rgba(255, 193, 7, 0.4), 0 0 25px rgba(255,235,59,0.8);
+        }
+
+        .call-to-action-box .instagram-button {
+            background-image: linear-gradient(to right, #e91e63, #f44336); /* Pink/Red */
+            color: #fff; /* White text */
+            box-shadow: 0 0 15px rgba(233,30,99,0.5); /* Pink glow */
+            border: none;
+        }
+        .call-to-action-box .instagram-button:hover {
+            box-shadow: 0 7px 20px rgba(233, 30, 99, 0.4), 0 0 25px rgba(233,30,99,0.8);
+        }
+
+        .service-divider { border: 0; height: 1px; background: var(--primary-color); margin: 4rem auto; }
+        .other-services { text-align: center; }
+        .other-services h2 { font-size: 2.5rem; }
+        .other-services h3 { font-size: 2rem; color: var(--light-text); }
+        .other-services p { max-width: 700px; margin: 0 auto 1.5rem; color: var(--light-text); }
+        
+        .other-services .price-item {
+            max-width: 700px; margin: 1rem auto; padding: 1.2rem;
+            background: rgba(74, 14, 107, 0.2);
+            border: 1px solid var(--primary-color); border-radius: 10px;
+        }
+
+        .other-services .cta-button-secondary { margin-top: 1rem; }
+        
+        /* --- NEW: Clickable Services --- */
+        .price-item.clickable-service {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 10px; /* Add radius for the hover effect */
+            padding-left: 10px; /* Add padding for hover effect */
+            padding-right: 10px;
+            margin-left: -10px; /* Compensate for padding */
+            margin-right: -10px;
+        }
+
+        .price-item.clickable-service:hover {
+            background-color: rgba(106, 27, 154, 0.3); /* Purple highlight */
+            transform: scale(1.02);
+            box-shadow: 0 0 15px rgba(106, 27, 154, 0.7);
+        }
+        
+        .other-services .cta-button-secondary:hover {
+            /* Make sure the button hover is still good */
+            background-color: var(--accent-gold);
+            color: var(--dark-bg);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(255, 193, 7, 0.4);
+        }
+
 
         @media (max-width: 768px) {
             .price-list-container { grid-template-columns: 1fr; }
-            .price-column:first-child { border-right: none; border-bottom: 1px solid var(--primary-blue); }
+            .price-column:first-child { border-right: none; border-bottom: 1px solid var(--primary-color); }
         }
         
     </style>
@@ -400,7 +657,7 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img src="https://placehold.co/120x120/E0D6F5/3A0CA3?text=DD&font=playfair-display" alt="Divination Diva Logo" class="logo-img">
+                <img src="https://placehold.co/120x120/f3e5f5/6a1b9a?text=DD&font=playfair-display" alt="Divination Diva Logo" class="logo-img">
                 <a href="#home-page" class="logo-text page-link">Divination Diva</a>
             </div>
             <nav>
@@ -413,57 +670,113 @@
     </header>
 
     <main>
-        <!-- Home Page Section -->
-        <section id="home-page" class="page active">
+        <!-- Home Page Section --><section id="home-page" class="page active">
             <div class="hero">
                 <div class="container">
                     <h1>Discover Your Destiny</h1>
-                    <p>Guiding you through love and life with insightful tarot readings.</p>
+                    <p>Guiding you through love and life with insightful tarot and astrology readings.</p>
                     <a href="#services-page" class="cta-button page-link">Book a Reading Today</a>
                 </div>
             </div>
 
-            <!-- NEW: Section Divider -->
-            <hr class="section-divider">
-
             <div class="featured-services">
                 <div class="container">
-                    <h2>Our Sacred Service</h2>
+                    <h2>Our Sacred Services</h2>
                     <div class="service-grid">
                         <div class="service-card">
-                            <h3>Tarot Readings</h3>
+                            <h3>In-Depth Tarot Readings</h3>
                             <p>Connect via voice, call, or video for a personalized tarot analysis that illuminates your path.</p>
                             <a href="#services-page" class="cta-button-secondary page-link">View Pricing</a>
                         </div>
+                       
                     </div>
+                </div>
+            </div>
+            
+            <!-- NEW Aesthetic Auto-SLIDESHOW Gallery --><div class="gallery-section">
+                <div class="container">
+                    <h2>Gallery</h2>
+                    
+                    <div class="slideshow-container">
+                        <!-- Slides --><div class="slide-item fade">
+                            <img src="https://placehold.co/800x500/1a0129/f3e5f5?text=Tarot+Cards" alt="Aesthetic tarot cards">
+                        </div>
+                        <div class="slide-item fade">
+                            <img src="https://placehold.co/800x500/1a0129/f3e5f5?text=Crystals" alt="Aesthetic crystals">
+                        </div>
+                        <div class="slide-item fade">
+                            <img src="https://placehold.co/800x500/1a0129/f3e5f5?text=Mystic+Hands" alt="Aesthetic celestial art">
+                        </div>
+                        <div class="slide-item fade">
+                            <img src="https://placehold.co/800x500/1a0129/f3e5f5?text=Zodiac" alt="Aesthetic zodiac art">
+                        </div>
+                        <div class="slide-item fade">
+                            <img src="https://placehold.co/800x500/1a0129/f3e5f5?text=Moon+Phases" alt="Aesthetic moon phases">
+                        </div>
+                        <div class="slide-item fade">
+                            <img src="https://placehold.co/800x500/1a0129/f3e5f5?text=Meditation" alt="Aesthetic meditation scene">
+                        </div>
+                        
+                        <!-- Next/prev arrows --><a class="prev">&#10094;</a>
+                        <a class="next">&#10095;</a>
+                    </div>
+                    
+                    <!-- Dots --><div class="dots-container">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    
                 </div>
             </div>
         </section>
 
-        <!-- Services Page Section -->
-        <section id="services-page" class="page">
+        <!-- Services Page Section --><section id="services-page" class="page">
             <div class="services-page">
                 <div class="container">
                     <h2>Tarot Card Reading Price List</h2>
                     <div class="price-list-container">
                         <div class="price-column">
                             <div class="price-header"> <h3>Basic Analysis With Tarot</h3> </div>
-                            <div class="price-category"><h4>VOICE NOTE</h4> <div class="price-item"> <span>Voice Note 1 ques</span> <span class="price">₹49</span> </div><div class="price-item"> <span>Voice Note 3 ques</span> <span class="price">₹149</span> </div><div class="price-item"> <span>Voice Note 5 ques</span> <span class="price">₹199</span> </div></div>
-                            <div class="price-category"><h4>VOICE CALL</h4> <div class="price-item"> <span>15 minutes</span> <span class="price">₹249</span> </div><div class="price-item"> <span>30 minutes</span> <span class="price">₹499</span> </div></div>
-                            <div class="price-category"><h4>VIDEO CALL</h4> <div class="price-item"> <span>15 minutes</span> <span class="price">₹349</span> </div><div class="price-item"> <span>30 minutes</span> <span class="price">₹699</span> </div></div>
+                            <div class="price-category"><h4>VOICE NOTE</h4> 
+                                <div class="price-item clickable-service" data-service-name="Basic Analysis: Voice Note 1 ques"> <span>Voice Note 1 ques</span> <span class="price">₹49</span> </div>
+                                <div class="price-item clickable-service" data-service-name="Basic Analysis: Voice Note 3 ques"> <span>Voice Note 3 ques</span> <span class="price">₹149</span> </div>
+                                <div class="price-item clickable-service" data-service-name="Basic Analysis: Voice Note 5 ques"> <span>Voice Note 5 ques</span> <span class="price">₹199</span> </div>
+                            </div>
+                            <div class="price-category"><h4>VOICE CALL</h4> 
+                                <div class="price-item clickable-service" data-service-name="Basic Analysis: Voice Call 15 minutes"> <span>15 minutes</span> <span class="price">₹249</span> </div>
+                                <div class="price-item clickable-service" data-service-name="Basic Analysis: Voice Call 30 minutes"> <span>30 minutes</span> <span class="price">₹499</span> </div>
+                            </div>
+                            <div class="price-category"><h4>VIDEO CALL</h4> 
+                                <div class="price-item clickable-service" data-service-name="Basic Analysis: Video Call 15 minutes"> <span>15 minutes</span> <span class="price">₹349</span> </div>
+                                <div class="price-item clickable-service" data-service-name="Basic Analysis: Video Call 30 minutes"> <span>30 minutes</span> <span class="price">₹699</span> </div>
+                            </div>
                         </div>
                         <div class="price-column">
                             <div class="price-header"> <h3>In-Depth Analysis With Tarot</h3> </div>
-                            <div class="price-category"><h4>VOICE NOTE</h4> <div class="price-item"> <span>Voice Note 1 ques</span> <span class="price">₹149</span> </div><div class="price-item"> <span>Voice Note 3 ques</span> <span class="price">₹449</span> </div><div class="price-item"> <span>Voice Note 5 ques</span> <span class="price">₹599</span> </div></div>
-                            <div class="price-category"><h4>VOICE CALL</h4> <div class="price-item"> <span>15 minutes</span> <span class="price">₹749</span> </div><div class="price-item"> <span>30 minutes</span> <span class="price">₹1499</span> </div></div>
-                            <div class="price-category"><h4>VIDEO CALL</h4> <div class="price-item"> <span>15 minutes</span> <span class="price">₹1049</span> </div><div class="price-item"> <span>30 minutes</span> <span class="price">₹2099</span> </div></div>
+                            <div class="price-category"><h4>VOICE NOTE</h4> 
+                                <div class="price-item clickable-service" data-service-name="In-Depth Analysis: Voice Note 1 ques"> <span>Voice Note 1 ques</span> <span class="price">₹149</span> </div>
+                                <div class="price-item clickable-service" data-service-name="In-Depth Analysis: Voice Note 3 ques"> <span>Voice Note 3 ques</span> <span class="price">₹449</span> </div>
+                                <div class="price-item clickable-service" data-service-name="In-Depth Analysis: Voice Note 5 ques"> <span>Voice Note 5 ques</span> <span class="price">₹599</span> </div>
+                            </div>
+                            <div class="price-category"><h4>VOICE CALL</h4> 
+                                <div class="price-item clickable-service" data-service-name="In-Depth Analysis: Voice Call 15 minutes"> <span>15 minutes</span> <span class="price">₹749</span> </div>
+                                <div class="price-item clickable-service" data-service-name="In-Depth Analysis: Voice Call 30 minutes"> <span>30 minutes</span> <span class="price">₹1499</span> </div>
+                            </div>
+                            <div class="price-category"><h4>VIDEO CALL</h4> 
+                                <div class="price-item clickable-service" data-service-name="In-Depth Analysis: Video Call 15 minutes"> <span>15 minutes</span> <span class="price">₹1049</span> </div>
+                                <div class="price-item clickable-service" data-service-name="In-Depth Analysis: Video Call 30 minutes"> <span>30 minutes</span> <span class="price">₹2099</span> </div>
+                            </div>
                         </div>
                     </div>
                     <div class="call-to-action-box">
                         <h3>Book A Reading Today!</h3>
                         <p>Guiding you through love and life. Contact us to schedule your session.</p>
                         <div class="cta-buttons-container">
-                             <a href="mailto:contact@divinationdiva.com" class="cta-button">
+                             <a href="mailto:]divinationdiva3105@gmail.com" class="cta-button">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                                 Book via Email
                             </a>
@@ -473,24 +786,59 @@
                             </a>
                         </div>
                     </div>
+                    <hr class="service-divider">
+                 
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="container">
+        <div class="container footer-content">
+            <div class="footer-column about">
+                <h4>Divination Diva</h4>
+                <p>Guiding you through love and life with insightful tarot and astrology readings.</p>
+            </div>
+            <div class="footer-column links">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home-page" class="page-link">Home</a></li>
+                    <li><a href="#services-page" class="page-link">Services</a></li>
+                    <li><a href="#home-page" onclick="event.preventDefault(); showPageAndScroll('home-page', '.featured-services');">Our Services</a></li>
+                    <li><a href="#home-page" onclick="event.preventDefault(); showPageAndScroll('home-page', '.gallery-section');">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-column connect">
+                <h4>Connect With Me</h4>
+                <div class="social-links">
+                    <a href="https://ig.me/m/divinationdiva_" target="_blank" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="mailto:contact@divinationdiva.com" aria-label="Email">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <span>Email</span>
+                    </a>
+                    <!-- Assuming you have a WhatsApp link, replace '#' with it --><a href="#" target="_blank" aria-label="WhatsApp">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
             <p>&copy; 2025 Divination Diva. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // --- Page Navigation ---
             const pageLinks = document.querySelectorAll('.page-link');
             const pages = document.querySelectorAll('.page');
             const navLinks = document.querySelectorAll('header nav a');
 
-            function showPage(pageId) {
+            function showPage(pageId, scrollTargetSelector = null) {
                 pages.forEach(page => page.classList.remove('active'));
                 const targetPage = document.getElementById(pageId);
                 if (targetPage) targetPage.classList.add('active');
@@ -498,8 +846,18 @@
                 navLinks.forEach(link => {
                     link.classList.toggle('active', link.getAttribute('href') === `#${pageId}`);
                 });
-                // Only scroll to top if not a hash link to the same page
-                if (window.location.hash !== `#${pageId}`) {
+                
+                if (scrollTargetSelector) {
+                    // Timeout to ensure page is visible before scrolling
+                    setTimeout(() => {
+                        const targetElement = document.querySelector(scrollTargetSelector);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        } else {
+                            window.scrollTo(0, 0);
+                        }
+                    }, 100); // 100ms delay
+                } else {
                     window.scrollTo(0, 0);
                 }
             }
@@ -509,18 +867,148 @@
                     e.preventDefault();
                     const pageId = this.getAttribute('href').substring(1);
                     showPage(pageId);
-                    window.location.hash = pageId; // Update hash for navigation
+                });
+            });
+            
+            // New function for footer links
+            window.showPageAndScroll = function(pageId, scrollTargetSelector) {
+                showPage(pageId, scrollTargetSelector);
+            }
+
+            const initialPage = window.location.hash ? window.location.hash.substring(1) : 'home-page';
+            showPage(initialPage);
+            
+            // --- Slideshow Logic ---
+            let slideIndex = 1;
+            let slideTimeout; // To store the timeout
+            
+            showSlides(slideIndex); // Show first slide
+            autoShowSlides(); // Start auto-cycle
+
+            // Next/previous controls
+            document.querySelector('.prev').addEventListener('click', () => plusSlides(-1));
+            document.querySelector('.next').addEventListener('click', () => plusSlides(1));
+
+            // Dot controls
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => currentSlide(index + 1));
+            });
+
+            function currentSlide(n) {
+                clearTimeout(slideTimeout); // Clear the auto-timer
+                showSlides(slideIndex = n);
+                slideTimeout = setTimeout(autoShowSlides, 3000); // Restart the timer
+            }
+            
+            function plusSlides(n) {
+                clearTimeout(slideTimeout); // Clear the auto-timer
+                showSlides(slideIndex += n);
+                slideTimeout = setTimeout(autoShowSlides, 3000); // Restart the timer
+            }
+
+            // Function to show a specific slide
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("slide-item");
+                let dots = document.getElementsByClassName("dot");
+                
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                
+                // Hide all slides
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                
+                // Remove active class from all dots
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active-dot", "");
+                }
+                
+                // Display the current slide and activate the corresponding dot
+                if (slides[slideIndex - 1]) { // Check if slide exists
+                    slides[slideIndex - 1].style.display = "block";
+                    dots[slideIndex - 1].className += " active-dot";
+                }
+            }
+
+            // Automatic slideshow function
+            function autoShowSlides() {
+                let i;
+                let slides = document.getElementsByClassName("slide-item");
+                let dots = document.getElementsByClassName("dot");
+                
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                
+                slideIndex++;
+                
+                if (slideIndex > slides.length) { slideIndex = 1 }
+                
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active-dot", "");
+                }
+                
+                if (slides[slideIndex - 1]) {
+                    slides[slideIndex - 1].style.display = "block";
+                    dots[slideIndex - 1].className += " active-dot";
+                }
+                
+                slideTimeout = setTimeout(autoShowSlides, 3000); // Change image every 3 seconds
+            }
+
+            // --- NEW: WhatsApp Enquiry Logic ---
+            
+            // !!!!! IMPORTANT !!!!!
+            // PLEASE REPLACE THIS with your 10-digit number + country code (e.g., 919876543210)
+            const whatsappNumber = "9820991620"; 
+            
+            function openWhatsAppEnquiry(serviceName) {
+                if (whatsappNumber === "YOUR_WHATSAPP_NUMBER_HERE") {
+                    console.warn("**************************************************");
+                    console.warn("WHATSAPP NOT SET UP!");
+                    console.warn("Please open the <script> tag at the bottom of the HTML");
+                    console.warn("and replace 'YOUR_WHATSAPP_NUMBER_HERE' with your real WhatsApp number (including country code).");
+                    console.warn("**************************************************");
+                    
+                    // This is a safe alternative to alert()
+                    // If you want a user-facing message, we'd need to add a modal.
+                    // For now, this console warning is the best approach.
+                    return; // Stop execution
+                }
+
+                const introText = "Hi! I'd like to enquire about the following service:";
+                const fullMessage = `${introText}\n\n*${serviceName}*`;
+                const encodedMessage = encodeURIComponent(fullMessage);
+                
+                const waLink = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+                window.open(waLink, '_blank');
+            }
+            
+            // Add listener to all clickable service items
+            const serviceItems = document.querySelectorAll('.clickable-service');
+            serviceItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const serviceName = this.dataset.serviceName;
+                    if (serviceName) {
+                        openWhatsAppEnquiry(serviceName);
+                    }
                 });
             });
 
-            // Check for hash on initial load
-            const initialPage = window.location.hash ? window.location.hash.substring(1) : 'home-page';
-            // Ensure a valid page is loaded, otherwise default to home
-            if (document.getElementById(initialPage)) {
-                 showPage(initialPage);
-            } else {
-                 showPage('home-page');
+            // Add specific listener for the "Book Your Chart" button
+            const bookChartButton = document.getElementById('book-chart-btn');
+            if (bookChartButton) {
+                bookChartButton.addEventListener('click', function(e) {
+                    e.preventDefault(); // Stop the javascript:void(0)
+                    // This service name must match the one in its corresponding .price-item
+                    openWhatsAppEnquiry("Natal Birth Chart: Full Report + 30-min Consultation");
+                });
             }
+            // --- End of WhatsApp Logic ---
+
         });
     </script>
 </body>
