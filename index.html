@@ -12,15 +12,15 @@
            Global Styles & Variables
            --------------------------------- */
         :root {
-            --primary-color: #6a1b9a; /* A slightly brighter purple */
-            --secondary-color: #fce4ec; /* Soft Pink */
-            --accent-gold: #ffc107; /* Vibrant Gold */
-            --dark-bg: #1a0129;
-            --light-text: #f3e5f5;
+            --primary-color: #8E44AD; /* Wisteria Purple */
+            --secondary-color: #D2B4DE; /* Thistle */
+            --accent-gold: #F1C40F; /* Sunflower Gold */
+            --dark-bg: #0F052B; /* Deep Indigo */
+            --light-text: #EAECEE; /* Light Grey */
             --text-color: #333;
             --heading-font: 'Playfair Display', serif;
             --body-font: 'Lora', serif;
-            --gradient-bg: linear-gradient(135deg, #4a0e6b, #1a0129);
+            --gradient-bg: linear-gradient(135deg, #2C3E50, #0F052B); /* Dark Slate to Indigo */
         }
 
         /* Smooth scrolling */
@@ -181,21 +181,21 @@
         }
 
         .cta-button {
-            background-image: linear-gradient(to right, #ffc107, #ff9800);
-            color: #1a0129;
+            background-image: linear-gradient(to right, #F1C40F, #F39C12); /* Sunflower to Orange */
+            color: var(--dark-bg);
         }
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 7px 20px rgba(255, 193, 7, 0.4);
+            box-shadow: 0 7px 20px rgba(241, 196, 15, 0.4);
         }
 
         .instagram-button {
-            background-image: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+            background-image: linear-gradient(to right, #8E44AD, #E91E63, #F39C12); /* Purple to Pink to Orange */
             color: #fff;
         }
         .instagram-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 7px 20px rgba(220, 50, 50, 0.4);
+            box-shadow: 0 7px 20px rgba(233, 30, 99, 0.4);
         }
 
         .cta-button-secondary {
@@ -223,7 +223,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url('https://www.transparenttextures.com/patterns/stardust.png'), linear-gradient(330deg, #1a0129 0%, #4a0e6b 50%, #0d0d0d 100%);
+            background-image: url('https://www.transparenttextures.com/patterns/stardust.png'), linear-gradient(330deg, #0F052B 0%, #2C3E50 50%, #0F052B 100%);
             background-size: auto, cover;
             animation: slowPan 30s linear infinite alternate;
             opacity: 0.9;
@@ -273,10 +273,10 @@
         }
 
         .service-card {
-            background: rgba(74, 14, 107, 0.2);
+            background: rgba(44, 62, 80, 0.3);
             border: 1px solid var(--primary-color);
             backdrop-filter: blur(5px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             padding: 2.5rem 2rem;
             text-align: center;
             border-radius: 15px;
@@ -285,13 +285,64 @@
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 8px 30px rgba(106, 27, 154, 0.5);
+            box-shadow: 0 8px 30px rgba(142, 68, 173, 0.5);
             border-color: var(--accent-gold);
         }
 
         .service-card h3 {
             font-size: 1.8rem;
             margin-bottom: 1rem;
+        }
+
+        /* ---------------------------------
+           Photo Gallery
+           --------------------------------- */
+        .photo-gallery {
+            padding: 4rem 0;
+            background-color: var(--dark-bg);
+            text-align: center;
+        }
+
+        .photo-gallery h2 {
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-container {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .gallery-track {
+            display: flex;
+            animation: scroll 30s linear infinite;
+        }
+
+        .gallery-track img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            margin: 0 10px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-track img:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-1280px); /* 4 images * 320px (300 width + 20 margin) */
+            }
         }
 
         /* ---------------------------------
@@ -329,7 +380,7 @@
         .zodiac-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem; }
 
         .zodiac-card {
-            background: rgba(74, 14, 107, 0.1);
+            background: rgba(44, 62, 80, 0.2);
             border: 1px solid var(--primary-color);
             border-radius: 15px; text-align: center; padding: 1.5rem 1rem;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -338,7 +389,7 @@
         }
         .zodiac-card:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(255, 193, 7, 0.3);
+            box-shadow: 0 6px 20px rgba(241, 196, 15, 0.3);
             border-color: var(--accent-gold);
         }
         .zodiac-card svg { width: 60px; height: 60px; margin: 0 auto 1rem; }
@@ -360,7 +411,7 @@
 
         .price-list-container {
             display: grid; grid-template-columns: 1fr 1fr; gap: 0;
-            background: rgba(26, 1, 41, 0.5);
+            background: rgba(44, 62, 80, 0.3);
             border: 1px solid var(--primary-color);
             box-shadow: 0 8px 32px 0 rgba(0,0,0,0.3);
             border-radius: 15px; overflow: hidden;
@@ -405,7 +456,7 @@
         .other-services p { max-width: 700px; margin: 0 auto 1.5rem; color: var(--light-text); }
         .other-services .price-item {
             max-width: 700px; margin: 1rem auto; padding: 1.2rem;
-            background: rgba(74, 14, 107, 0.2);
+            background: rgba(44, 62, 80, 0.2);
             border: 1px solid var(--primary-color); border-radius: 10px;
         }
         .other-services .cta-button-secondary { margin-top: 1rem; }
@@ -544,6 +595,24 @@
                             <h3>Natal Birth Charts</h3>
                             <p>Unlock the secrets of your soul's blueprint with a detailed and insightful birth chart analysis.</p>
                             <a href="#services-page" class="cta-button-secondary page-link">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photo-gallery">
+                <div class="container">
+                    <h2>Cosmic Gallery</h2>
+                    <div class="gallery-container">
+                        <div class="gallery-track">
+                            <img src="https://i.ibb.co/3fd01y5/a.png" alt="Astrology Image 1">
+                            <img src="https://i.ibb.co/wJ0c6GZ/b.png" alt="Astrology Image 2">
+                            <img src="https://i.ibb.co/k2x11qh/c.png" alt="Astrology Image 3">
+                            <img src="https://i.ibb.co/X7sY2Y3/d.png" alt="Astrology Image 4">
+                            <img src="https://i.ibb.co/3fd01y5/a.png" alt="Astrology Image 1">
+                            <img src="https://i.ibb.co/wJ0c6GZ/b.png" alt="Astrology Image 2">
+                            <img src="https://i.ibb.co/k2x11qh/c.png" alt="Astrology Image 3">
+                            <img src="https://i.ibb.co/X7sY2Y3/d.png" alt="Astrology Image 4">
                         </div>
                     </div>
                 </div>
