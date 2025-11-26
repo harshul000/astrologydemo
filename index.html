@@ -655,10 +655,118 @@
             box-shadow: 0 7px 20px rgba(255, 193, 7, 0.4);
         }
 
+        /* Healing Section Styles */
+        .healing-section {
+            background: linear-gradient(135deg, #f3e7ff, #ffe4e9, #e0f7fa);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+          }
+
+          .healing-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><g fill-opacity=".1"><circle fill="%23c7a5d9" cx="400" cy="400" r="400"/><circle fill="%23d9a5b9" cx="400" cy="400" r="300"/><circle fill="%23a5d9d0" cx="400" cy="400" r="200"/><circle fill="%23a5b9d9" cx="400" cy="400" r="100"/></g></svg>');
+            background-size: cover;
+            opacity: 0.1;
+            animation: shimmer 20s infinite linear;
+          }
+
+          @keyframes shimmer {
+            0% { transform: rotate(0deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1.2); }
+          }
+
+          .healing-section h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5em;
+            color: #4a2d6b;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+            margin-bottom: 40px;
+            text-align: center;
+          }
+
+          .healing-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+          }
+
+          .healing-card {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 20px;
+            padding: 30px;
+            width: 45%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            color: #4a2d6b;
+          }
+
+          .healing-card h3 {
+            color: #4a2d6b;
+            font-size: 1.8rem;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(230, 209, 255, 0.5);
+            margin-bottom: 1.5rem;
+            text-align: center;
+          }
+
+        .healing-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .healing-card ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 0.8rem;
+        }
+
+        .healing-card ul li::before {
+            content: '✧';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .healing-journey-button {
+            background-image: linear-gradient(to right, #6a1b9a, #8e24aa);
+            color: white;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        .healing-journey-button:hover {
+            box-shadow: 0 7px 20px rgba(106, 27, 154, 0.4), 0 0 25px rgba(230, 209, 255, 0.8);
+        }
+
+        .healing-card-icon {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .healing-card-icon svg {
+            color: var(--accent-gold);
+            filter: drop-shadow(0 0 5px var(--accent-gold));
+        }
+
 
         @media (max-width: 768px) {
             .price-list-container { grid-template-columns: 1fr; }
             .price-column:first-child { border-right: none; border-bottom: 1px solid var(--primary-color); }
+            .healing-container { flex-direction: column; }
+            .healing-card { width: 100%; }
         }
 
         @media (max-width: 480px) {
@@ -748,7 +856,7 @@
                     </div>
                     
                 </div>
-            </div>
+    </div>
         </section>
 
         <!-- Services Page Section --><section id="services-page" class="page">
@@ -814,7 +922,47 @@
                         </div>
                     </div>
                     <hr class="service-divider">
-                 
+                </div>
+            </div>
+        </section>
+
+        <section class="healing-section">
+            <div class="container">
+                <h2>Understanding Basic & Advanced Healing</h2>
+                <div class="healing-container">
+                    <div class="healing-card">
+                        <div class="healing-card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        </div>
+                        <h3>BASIC HEALING</h3>
+                        <p>A gentle, introductory form of energy healing. This session helps balance your energy on a smaller scale.</p>
+                        <p><strong>Ideal for:</strong></p>
+                        <ul>
+                            <li>Headache</li>
+                            <li>Acidity</li>
+                            <li>Fatigue or laziness</li>
+                            <li>Sudden mood dips</li>
+                        </ul>
+                        <p>Basic Healing offers quick relief for acute conditions and helps realign your energy so you feel lighter, calmer, and refreshed.</p>
+                    </div>
+                    <div class="healing-card">
+                        <div class="healing-card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        </div>
+                        <h3>ADVANCED HEALING</h3>
+                        <p>A deeper and more powerful healing experience. This session works on a larger scale, targeting deeper energetic imbalances and long-standing issues.</p>
+                        <p><strong>Ideal for:</strong></p>
+                        <ul>
+                            <li>Chronic stress or depression</li>
+                            <li>Fever</li>
+                            <li>Long-term emotional imbalance</li>
+                            <li>Any recurring physical or mental condition</li>
+                        </ul>
+                        <p>Advanced Healing supports long-term restoration, inner harmony, and full-scale energy realignment.</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="#" class="cta-button healing-journey-button">Begin Your Healing Journey</a>
                 </div>
             </div>
         </section>
